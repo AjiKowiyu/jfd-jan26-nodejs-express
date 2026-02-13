@@ -15,6 +15,18 @@ app.get('/profil', (req, res) => {
     res.render('profil')
 })
 
+app.get('/pengalaman', (req, res) => {
+    let namaLengkap = 'Aji Kowiyu'
+    // 1. data harus dikirim ke view
+    // 2. data harus dipanggil di dalam view
+    res.render('detail-pengalaman', {
+        nama: namaLengkap,
+        alamat: 'Pluit, Jakarta Utara',
+        posisi: 'Programmer',
+        perusahaan: 'PT Freeport Jaya Makmur',
+        gaji: 9000000
+    })
+})
 
 app.listen(port, () => {
     console.log(`Aplikasi berjalan di http://localhost:${port}`)

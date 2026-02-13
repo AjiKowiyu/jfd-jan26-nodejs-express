@@ -1,0 +1,10 @@
+<h1>Pengalaman Kandidat</h1>
+
+<ul>
+    <li>Nama : <%= nama %></li>
+    <li>Tempat tinggal : <%= alamat %></li>
+    <li>Profesi : <%= posisi %></li>
+    <li>Kantor : <%= perusahaan %></li>
+    <li>Gaji : <%= gaji.toLocaleString('id-ID') %></li>
+    <li>Status Pajak : <%= (gaji > 10000000) ? 'kena pajak' : 'tidak perlu bayar pph' %></li>
+</ul>
