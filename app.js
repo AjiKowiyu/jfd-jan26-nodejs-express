@@ -3,20 +3,16 @@ const app       = express()
 const port      = 3000
 
 
+app.set('view engine', 'ejs')   //setting penggunaan template engine untuk express
+app.set('views', './view')      //setting penggunaan folder untuk menyimpan file .ejs
+
+
 app.get('/', (req, res) => {
-    res.send(
-        `<h1>Halaman Utama</h1><hr>
-        <p>lorem ipsum lorem ipsum</p><br>
-        <button>simpan</button>`
-    )
+    res.render('beranda')
 })
 
-app.get('/about', (req, res) => {
-    res.send(
-        `<h1>Halaman Profil Kami</h1><hr>
-        <p>PT Bangun Abadi adalah perusahaan yg bergerak di bidang IT</p><br>
-        <button>simpan</button>`
-    )
+app.get('/profil', (req, res) => {
+    res.render('profil')
 })
 
 
