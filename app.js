@@ -43,6 +43,16 @@ app.get('/karyawan/detail/:id_kry', async (req,res)=>{
     })
 })
 
+app.get('/karyawan/hapus/:id_kry', async (req,res)=>{
+    let id_kry = req.params.id_kry
+    let proses_hapus = await require('./model/m_karyawan').delete_1_karyawan(id_kry)
+    if (proses_hapus.affectedRows > 0) {
+        res.render('karyawan/all', {
+            data_karyawan: await require('./model/m_karyawan').get_semua_karyawan()
+        })
+    }
+})
+
 app.listen(port, () => {
     console.log(`Aplikasi berjalan di http://localhost:${port}`)
 })
