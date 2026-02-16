@@ -36,7 +36,9 @@ app.get('/karyawan', async (req,res)=>{
     })
 })
 
-
+app.get('/karyawan/detail', (req,res)=>{
+    res.send('ini halaman karyawan detail')
+})
 
 app.listen(port, () => {
     console.log(`Aplikasi berjalan di http://localhost:${port}`)

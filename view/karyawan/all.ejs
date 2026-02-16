@@ -1,16 +1,33 @@
-ini adalah view/karyawan/all
+Halaman data semua karyawan
 <%#= JSON.stringify(data_karyawan) %>
 
 <!-- teknik buka tutup tag ejs -->
-<ul>
-    <% for( let i = 0; i < data_karyawan.length; i++ ) { %>
-        <li><%= data_karyawan[i].nama  %> (<%= data_karyawan[i].jenis_kelamin  %>)</li>
-    <% } %>
-</ul>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Gender</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for( let i = 0; i < data_karyawan.length; i++ ) { %>
+            <tr>
+                <td><%= data_karyawan[i].nama  %></td>
+                <td><%= data_karyawan[i].jenis_kelamin  %></td>
+                <td style="padding: 5px">
+                    <a href="/karyawan/detail">
+                        <button>Detail</button>
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
 
 
 <!-- teknik 1 tag ejs -->
-<%
+<%#
     __append('<ul>')
     for (const i in data_karyawan) {
         __append(`<li>${data_karyawan[i].nama} (${data_karyawan[i].jenis_kelamin})</li>`)
