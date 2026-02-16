@@ -25,5 +25,23 @@ module.exports =
                 }
             })
         })
+    },
+
+
+    get_1_karyawan: function() {
+        let sql = mysql.format(
+            'SELECT * FROM karyawan WHERE id = 18'
+        )
+
+        return new Promise( function(resolve,reject) {
+            db.query(sql, function(errorSql, hasil) {
+                if (errorSql) {
+                    reject(errorSql)
+                } else {
+                    resolve(hasil)
+                }
+            })
+        })
     }
+
 }

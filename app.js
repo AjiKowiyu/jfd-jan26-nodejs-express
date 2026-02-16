@@ -36,8 +36,10 @@ app.get('/karyawan', async (req,res)=>{
     })
 })
 
-app.get('/karyawan/detail', (req,res)=>{
-    res.send('ini halaman karyawan detail')
+app.get('/karyawan/detail', async (req,res)=>{
+    res.render('karyawan/profil', {
+        profil_karyawan: await require('./model/m_karyawan').get_1_karyawan()
+    })
 })
 
 app.listen(port, () => {
