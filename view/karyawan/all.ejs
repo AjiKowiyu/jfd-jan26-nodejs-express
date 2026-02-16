@@ -16,7 +16,7 @@ Halaman data semua karyawan
                 <td><%= data_karyawan[i].nama  %></td>
                 <td><%= data_karyawan[i].jenis_kelamin  %></td>
                 <td style="padding: 5px">
-                    <a href="/karyawan/detail">
+                    <a href="/karyawan/detail/<%= data_karyawan[i].id %>">
                         <button>Detail</button>
                     </a>
                 </td>

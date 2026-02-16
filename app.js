@@ -36,9 +36,10 @@ app.get('/karyawan', async (req,res)=>{
     })
 })
 
-app.get('/karyawan/detail', async (req,res)=>{
+app.get('/karyawan/detail/:id_kry', async (req,res)=>{
+    let id_kry = req.params.id_kry
     res.render('karyawan/profil', {
-        profil_karyawan: await require('./model/m_karyawan').get_1_karyawan()
+        profil_karyawan: await require('./model/m_karyawan').get_1_karyawan(id_kry)
     })
 })
 
