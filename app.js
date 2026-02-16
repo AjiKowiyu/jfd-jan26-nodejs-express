@@ -28,6 +28,16 @@ app.get('/pengalaman', (req, res) => {
     })
 })
 
+// synchronous = berjalan berurutan
+// asynchronous = berjalan tidak berurutan
+app.get('/karyawan', async (req,res)=>{
+    res.render('karyawan/all', {
+        data_karyawan: await require('./model/m_karyawan').get_semua_karyawan()
+    })
+})
+
+
+
 app.listen(port, () => {
     console.log(`Aplikasi berjalan di http://localhost:${port}`)
 })
