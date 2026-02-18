@@ -53,8 +53,11 @@ app.get('/karyawan/hapus/:id_kry', async (req,res)=>{
     }
 })
 
-app.get('/karyawan/tambah', (req,res)=>{
-    res.render('karyawan/form-tambah', {req:req})
+app.get('/karyawan/tambah', async (req,res)=>{
+    res.render('karyawan/form-tambah', {
+        req: req,
+        agama: await require('./model/m_agama').get_semua_agama(),
+    })
 })
 
 app.post('/karyawan/proses-insert', async (req,res)=>{
