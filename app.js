@@ -3,6 +3,7 @@ const app       = express()
 const port      = 3000
 
 
+app.use( express.urlencoded({extended:false}) )
 app.set('view engine', 'ejs')   //setting penggunaan template engine untuk express
 app.set('views', './view')      //setting penggunaan folder untuk menyimpan file .ejs
 
@@ -49,6 +50,14 @@ app.get('/karyawan/hapus/:id_kry', async (req,res)=>{
     if (proses_hapus.affectedRows > 0) {
         res.redirect('/karyawan')
     }
+})
+
+app.get('/karyawan/tambah', (req,res)=>{
+    res.render('karyawan/form-tambah')
+})
+
+app.post('/karyawan/proses-insert', (req,res)=>{
+    res.send( req.body )
 })
 
 app.listen(port, () => {
