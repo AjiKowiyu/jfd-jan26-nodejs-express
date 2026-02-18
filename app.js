@@ -56,8 +56,15 @@ app.get('/karyawan/tambah', (req,res)=>{
     res.render('karyawan/form-tambah')
 })
 
-app.post('/karyawan/proses-insert', (req,res)=>{
-    res.send( req.body )
+app.post('/karyawan/proses-insert', async (req,res)=>{
+    try {
+        let proses_insert = await require('./model/m_karyawan').insert_1_karyawan(req)
+        if (proses_insert.affectedRows > 0) {
+            res.redirect('/karyawan')
+        }
+    } catch (error) {
+        res.redirect('/karyawan/tambah')
+    }
 })
 
 app.listen(port, () => {
