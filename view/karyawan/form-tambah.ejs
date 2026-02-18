@@ -1,6 +1,10 @@
 <h1>Input karyawan baru</h1>
 <hr>
 
+<% if (req.query.error_msg) { %>
+    <h3><%= req.query.error_msg %></h3>
+<% } %>
+
 <form action="/karyawan/proses-insert" method="post">
     <div style="margin-bottom: 10px;">
         <label for="">Nama</label>

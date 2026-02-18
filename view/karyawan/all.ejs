@@ -1,5 +1,10 @@
 Halaman data semua karyawan
 <hr>
+
+<% if (req.query.success_msg) { %>
+    <h3 style="color: green;">&#9989; <%= req.query.success_msg %></h3>
+<% } %>
+
 <a href="/karyawan/tambah">
     <button>+ karyawan baru</button>
 </a>
