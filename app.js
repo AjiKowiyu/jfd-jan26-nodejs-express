@@ -1,5 +1,6 @@
 const express   = require('express')
 const app       = express()
+const moment    = require('moment')
 const port      = 3000
 
 
@@ -70,6 +71,18 @@ app.post('/karyawan/proses-insert', async (req,res)=>{
         res.redirect('/karyawan/tambah?error_msg=' + error.errno +': '+ error.sqlMessage)
     }
 })
+
+
+app.get('/karyawan/edit/:id_kry', async (req,res)=>{
+    let id_kry = req.params.id_kry
+    res.render('karyawan/form-edit', {
+        req: req,
+        moment: moment,
+        agama: await require('./model/m_agama').get_semua_agama(),
+        profil_karyawan: await require('./model/m_karyawan').get_1_karyawan(id_kry),
+    })
+})
+
 
 app.listen(port, () => {
     console.log(`Aplikasi berjalan di http://localhost:${port}`)
