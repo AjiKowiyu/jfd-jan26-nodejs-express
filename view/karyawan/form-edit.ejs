@@ -9,7 +9,7 @@
 
 <br>
 
-<form action="/karyawan/proses-update" method="post">
+<form action="/karyawan/proses-update/<%= profil_karyawan[0].id %>" method="post">
     <div style="margin-bottom: 10px;">
         <label for="">Nama</label>
         <input type="text" name="form_nama" value="<%= profil_karyawan[0].nama %>">

@@ -84,6 +84,18 @@ app.get('/karyawan/edit/:id_kry', async (req,res)=>{
 })
 
 
+app.post('/karyawan/proses-update/:id_kry', async (req,res)=>{
+    try {
+        let proses_update = await require('./model/m_karyawan').update_1_karyawan(req)
+        if (proses_update.affectedRows > 0) {
+            res.redirect('/karyawan?success_msg=berhasil update data karyawan a/n '+ req.body.form_nama)
+        }
+    } catch (error) {
+        res.redirect('/karyawan/edit?error_msg=' + error.errno +': '+ error.sqlMessage)
+    }
+})
+
+
 app.listen(port, () => {
     console.log(`Aplikasi berjalan di http://localhost:${port}`)
 })
